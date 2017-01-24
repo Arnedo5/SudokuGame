@@ -1,0 +1,335 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Amatic SC', cursive;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 0vh;
+  background: #dbe9fb;
+
+}
+
+/* ALL BUTTONS MENU */
+.menuLarge {
+  color: white;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px 15px;
+  background-color: #004797;
+  border: 1px black solid;
+  font-size: 3em;
+  border-radius: 13px 25px;
+}
+
+/* CREDITS */
+#credits {
+  position: absolute;
+  width: 18em;
+  height: 50em;
+  bottom: 0;
+  left: 50%;
+  margin-left: -9em;
+  font-size: 350%;
+  font-weight: bold;
+  text-align: justify;
+  overflow: hidden;
+  transform-origin: 50% 100%;
+  transform: perspective(300px)   rotateX(25deg);
+}
+
+#credits:after {
+  position: absolute;
+  content: ' ';
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 60%;
+  background-image: linear-gradient(top, rgba(0,0,0,1) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+#creditsContent {
+  position: absolute;
+  top: 100%;
+  animation: scroll 90s linear 1s infinite;
+  width: 100%;
+  text-align:center;
+}
+
+@keyframes scroll {
+  0% { top: 100%; }
+  100% { top: -170%; }
+}
+
+/* Animations ALL MENUS*/
+.menuLarge:hover, .image:hover, .text:hover,
+.draggableTile:hover{
+ -webkit-animation-name: grow;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  -moz-animation-name: grow;
+  -moz-animation-duration: 1s;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-timing-function: linear;
+  -ms-animation-name: grow;
+  -ms-animation-duration: 1s;
+  -ms-animation-iteration-count: infinite;
+  -ms-animation-timing-function: linear;
+}
+
+
+/* Images | lenguage | background */
+.container {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.images{
+  display: flex;
+  align-items: space-between;
+  justify-content: center;
+
+}
+.imageImage0 {
+  background-size: 270px 250px;
+  background-image: url("../images/configIMG/jugnle.png");
+}
+
+.imageImage1 {
+  background-size: 270px 250px;
+  background-image: url("../images/configIMG/fruit.png");
+}
+
+.imageImage2 {
+  background-size: 270px 250px;
+  background-image: url("../images/configIMG/music.png");
+}
+
+.imageImage3 {
+  background-size: 270px 250px;
+  background-image: url("../images/configIMG/color.png");
+}
+
+.imageLanguage0 {
+  background-size: 270px 250px;
+  background-image: url("../images/configLAN/catalonia.png");
+}
+
+.imageLanguage1 {
+  background-size: 270px 250px;
+  background-image: url("../images/configLAN/spain.png");
+}
+
+.imageLanguage2 {
+  background-size: 360px 250px;
+  background-image: url("../images/configLAN/eeuu.png");
+}
+
+.imageLanguage3 {
+  background-size: 360px 250px;
+  background-image: url("../images/configLAN/portugal.png");
+}
+
+.container-image {
+  flex-grow: 1;
+  padding: 0 15px;
+}
+
+.image{
+  min-height:250px;
+}
+
+.text {
+  background: #FCFFFD;
+  min-height: 44px;
+  margin-top: 30px;
+  padding: 10px 15px;
+  text-align: center;
+  font-size: 2em;
+  border-radius: 13px 25px;
+}
+
+/* return mainMenu*/
+.container-button{
+  margin: 30px 15px 0 15px;
+}
+
+.mainMenu{
+  width: 100%;
+  background: #004797;
+  border: none;
+  min-height: 44px;
+}
+
+/* NEW SUDOKU */
+.containerSudoku{
+  display: flex;
+  justify-content: center;
+}
+
+/* TRASH */
+.trashSudoku {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-between;
+  margin-right: 100px;
+  height: 550px;
+  background-size: cover;
+}
+
+.tileTrash {
+  width: 120px;
+  height: 120px;
+  background-size: 120px 120px;
+}
+
+.tileTrash:hover {
+  -webkit-animation-name: grow;
+  -webkit-animation-duration: 0.5s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  -moz-animation-name: grow;
+  -moz-animation-duration: 0.5s;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-timing-function: linear;
+  -ms-animation-name: grow;
+  -ms-animation-duration: 0.5s;
+  -ms-animation-iteration-count: infinite;
+  -ms-animation-timing-function: linear;
+}
+
+/* DRAGGABLE IMAGES*/
+.draggableImages{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-right: 100px;
+  height: 550px;
+}
+
+.tileSudoku {
+  width: 120px;
+  height: 120px;
+  background-size: cover;
+}
+
+
+.tableSudoku{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: space-between;
+  max-width: 550px;
+  height: 550px;
+  margin-right: 100px;
+}
+
+
+/*PROGRESS BAR*/
+.progressBar{
+  height: 550px;
+  width: 20px;
+  background: #494947;
+  margin-right: 100px;
+}
+
+.bar{
+  height: 100%;
+  background: #7EA2AA;
+  transition: .5s all;
+}
+
+/* RIGHT IMAGE*/
+.rightImage {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-between;
+  height: 550px;
+}
+
+.bigImage {
+  width: 120px;
+  height: 263px;
+  background: #6ec5ed;
+}
+
+/* BUTTONS MENU */
+.buttonsSudoku {
+  width: 550px;
+  bottom: 90px;
+  position: absolute;
+  text-align: center;
+}
+
+.buttonBottomSudoku {
+  color: white;
+  border: none;
+  background: #130303;
+  font-size: 2em;
+  border-radius: 13px 25px;
+  padding: 10px 15px;
+  width: 200px;
+  margin-left: 50px;
+}
+
+.buttonBottomSudoku:first-child{
+  margin-left: 100px;
+}
+
+/* TEST */
+.backTileSudoku {
+  width: 120px;
+  height: 120px;
+  background-color: #494947;
+  background-size: cover;
+}
+
+
+/* Animations */
+@-webkit-keyframes grow
+{
+  0%{-webkit-transform:scale(1);}
+  50%{-webkit-transform:scale(1.1);}
+  100%{-webkit-transform:scale(1);}
+}
+@-moz-keyframes grow
+{
+  0%{-moz-transform:scale(1);}
+  50%{-moz-transform:scale(1.1);}
+  100%{-moz-transform:scale(1);}
+}
+@-ms-keyframes grow
+{
+  0%{-ms-transform:scale(1);}
+  50%{-ms-transform:scale(1.1);}
+  100%{-ms-transform:scale(1);}
+}
+
+.incorrect {
+  -webkit-animation-name: grow;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  -moz-animation-name: grow;
+  -moz-animation-duration: 1.5s;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-timing-function: linear;
+  -ms-animation-name: grow;
+  -ms-animation-duration: 1.5s;
+  -ms-animation-iteration-count: infinite;
+  -ms-animation-timing-function: linear;
+}
+
+
+img {
+  position: absolute;
+  bottom: 0px;
+  width: 700px;
+  height: 150px;
+}
