@@ -22,10 +22,6 @@ function changeLanguage(language) {
             'descriptionBackground1': 'Nave espacial',
             'descriptionBackground2': 'Dia en la playa',
             'descriptionBackground3': 'Dia de navidad',
-            'difficultEasy': 'Facil',
-            'difficultMedium': 'Medio',
-            'difficultHard': 'Dificil',
-            'difficultVeryHard': 'Muy dificil',
         },
         'cat': {
             'mainMenuMenu': 'Menu principal',
@@ -48,10 +44,6 @@ function changeLanguage(language) {
             'descriptionBackground1': 'Nau espacial',
             'descriptionBackground2': 'Dia de platja',
             'descriptionBackground3': 'Dia de nadal',
-            'difficultEasy': 'Facil',
-            'difficultMedium': 'Mitja',
-            'difficultHard': 'Dificil',
-            'difficultVeryHard': 'Molt dificil',
         },
         'en': {
             'mainMenuMenu': 'Main menu',
@@ -74,12 +66,9 @@ function changeLanguage(language) {
             'descriptionBackground1': 'Fruits',
             'descriptionBackground2': 'Music',
             'descriptionBackground3': 'Colors',
-            'difficultEasy': 'Easy',
-            'difficultMedium': 'Medium',
-            'difficultHard': 'Hard',
-            'difficultVeryHard': 'Very Hard',
         },
         'pt': {
+            
 
         }
     };
