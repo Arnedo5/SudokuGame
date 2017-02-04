@@ -1,8 +1,7 @@
 
 $(document).ready(function () {
     // New array
-    difficultSudoku(4);
-    //newGameImage();
+    newGameImage();
     // Initial menu
     initMenu();
 });
@@ -63,7 +62,7 @@ function selectLevel() {
 
     for (var x = 0; x < 4; x++) {
         createElement("<div>", "container-image container-image" + x, "key", "", ".images");
-        createElement("<img>", "", "src", "img/configLevel/level" + x + ".png", ".container-image" + x);
+        createElement("<img>", "level" + x, "src", "img/configLevel/level" + x + ".png", ".container-image" + x);
         createElement("<div>", "description descriptionImage" + x, "key", "level" + x, ".container-image" + x);
     }
 
@@ -76,6 +75,30 @@ function selectLevel() {
     $(".mainMenu").click(function () {
         elementRemove(".container");
         initMenu();
+    });
+
+    $(".level0").click(function () {
+        elementRemove(".container");
+        difficultSudoku(4);
+        newGame();
+    });
+
+    $(".level1").click(function () {
+        elementRemove(".container");
+        difficultSudoku(6);
+        newGame();
+    });
+
+    $(".level2").click(function () {
+        elementRemove(".container");
+        difficultSudoku(8);
+        newGame();
+    });
+
+    $(".level3").click(function () {
+        elementRemove(".container");
+        difficultSudoku(10);
+        newGame();
     });
 }
 
@@ -229,7 +252,39 @@ function configurationMenu() {
 
 }
 
-function newGame () {
+function newGame() {
+
+    /* Pre containers table */
+    createElement("<div>", "containerSudoku", "key", "", ".menu");
+    createElement("<table>", "sudoku", "key", "", ".containerSudoku");
+    createElement("<table>", "exampleTile", "key", "", ".containerSudoku");
+    createElement("<div>", "trash", "key", "", ".containerSudoku");
+
+    var positionDiv = 0;
+
+    for (var x = 0; x < 4; x++) {
+        createElement("<tr>", "lineal" + x, "key", "", ".sudoku");
+        console.log("X - " + x)
+
+        for (var y = 0; y < 4; y++) {
+
+            createElement("<td>", "tileSudoku location" + positionDiv, "data-position", y, ".lineal" + x);
+            var dragImgage = $('.location' + positionDiv);
+            if (unCompleteArray[x][y] != 0) {
+                changeSprite(dragImgage, unCompleteArray[x][y], 0);
+                //console.log(NO);
+            } else {
+                console.log("complete");
+                dragImgage.addClass("uncomplete");
+            }
+            positionDiv++;
+        }
+    }
+
+
+
+
+
 
 }
 
@@ -265,4 +320,12 @@ function animationSprite() {
 /* Remove element in HTML */
 function elementRemove(elementRemove) {
     $(elementRemove).remove();
+}
+
+/* Change sprite */
+function changeSprite(element, image, time) {
+    setTimeout(function () {
+        element.css("background-image", "url(img/" + urlImages + "/image" + image + ".png)");
+        console.log("DAYUM");
+    }, time);
 }
