@@ -2,8 +2,9 @@
 
 // NEW GAME
 $(document).ready(function () {
-    newGame();
-    function newGame() {
+    initMenu();
+    //configurationMenu();
+    function initMenu() {
 
         //Create loading
         createElement("<div>", "game", "key", "", ".menu");
@@ -32,25 +33,73 @@ $(document).ready(function () {
             });
         }, 2000);
 
+        //On clic button's
+        $(".newSudoku").click(function () {
 
+        });
 
+        $(".configuration").click(function () {
+            configurationMenu();
+        });
 
-    }
-});
-
-
-$(document).ready(function () {
-    function configurationMenu() {
-
-    }
-});
-
-$(document).ready(function () {
-    function endGame() {
-
+        $(".credits").click(function () {
+            newGameSudoku();
+        });
 
     }
 });
+
+
+function configurationMenu() {
+/*
+    //Create configuration button elements
+    createElement("<button>", "images menuLarge", "key", "image", ".menu");
+    createElement("<button>", "lenguage menuLarge", "key", "language", ".menu");
+    createElement("<button>", "background menuLarge", "key", "background", ".menu");
+    createElement("<button>", "mainMenuMenu menuLarge", "key", "mainMenuMenu", ".menu");
+*/
+    //Add text to buttons
+    changeLanguage(languageSudoku);
+
+    imagesMenu()
+
+    function imagesMenu() {
+
+        //Create images elements
+        createElement("<div>", "container", "key", "", ".menu");
+        createElement("<div>", "images", "key", "", ".container");
+
+        for (var x = 0; x < 4; x++) {
+            createElement("<div>", "container-image container-image" + x, "key", "", ".images");
+            createElement("<img>", "", "src", "img/configIMG/image" + x + ".png" , ".container-image" + x);
+            createElement("<div>", "description descriptionImage" + x, "key", "descriptionImage" + x , ".container-image" + x); 
+        }
+
+        createElement("<div>", "container-button", "key", "", ".container");
+        createElement("<button>", "mainMenu menuLarge", "key", "configurationMenu", ".container-button");
+        
+
+    }
+
+    function lenguageMenu() {
+
+
+    }
+
+    function backgroundMenu() {
+
+    }
+
+}
+
+
+
+
+function endGame() {
+
+
+}
+
 
 // ADDITIONAL FUCTIONS 
 // Create a new element

@@ -13,12 +13,15 @@ body {
     background: #dbe9fb;
 }
 
+.menu {
+    padding: 0px 15px;
+}
 
 /* Charge menu */
 .spriteGirl {
     height: 157px;
     width: 125px;
-    background-image: url(../img/girl.png);
+    background-image: url(../img/sprites/girl.png);
     margin: 0 auto; 
     margin-bottom: 20px;
 }
@@ -26,7 +29,7 @@ body {
 .spriteBoy {
     height: 140px;
     width: 108px;
-    background-image: url(../img/boy.png);
+    background-image: url(../img/sprites/boy.png);
     margin: 0 auto;  
 }
 
@@ -56,12 +59,80 @@ body {
   border-radius: 13px 25px;
 }
 
+.mainMenu {
+    margin-top: 20px;
+}
+/* IMAGE MENU CONFIGURATION */
+
+.container-button{
+  padding: 0px 15px;
+}
+
+/* Imatges */
+.images{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.container-image img{
+  width: 100%;
+  display: block;
+  margin-top:20px;
+}
+
+.container {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.container-image {
+  flex-grow: 1;
+  padding: 0 15px;
+  width: 25%;
+}
+
+/* Desciption Image */
+.description {
+  background: #FCFFFD;
+  min-height: 44px;
+  margin-top: 20px;
+  padding: 10px 15px;
+  text-align: center;
+  font-size: 2em;
+  border-radius: 13px 25px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* ADAPTATIVE */
 @media (max-width: 991px) {
     .menuLarge {
         font-size: 1.8em;
     }
+    .container {
+        width: auto;
+    } 
+    .container-image {
+        width: 50%;
+    }
+    .description {
+      font-size: 1.5em;
+    }
 }
+
 
 /* ANIMATIONS */
 /* Loading animation */
