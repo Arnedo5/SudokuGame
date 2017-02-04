@@ -1,0 +1,122 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Amatic SC', cursive;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: #dbe9fb;
+}
+
+
+/* Charge menu */
+.spriteGirl {
+    height: 157px;
+    width: 125px;
+    background-image: url(../img/girl.png);
+    margin: 0 auto; 
+    margin-bottom: 20px;
+}
+
+.spriteBoy {
+    height: 140px;
+    width: 108px;
+    background-image: url(../img/boy.png);
+    margin: 0 auto;  
+}
+
+.loading {
+    width: 100%;
+    font-size: 1.8em;
+    border-top: 1px dashed;
+    text-align: center;
+    min-width: 200px;
+}
+
+.text-loader{
+    padding: 10px 0;
+}
+
+
+
+/* INITIAL MENU */
+.menuLarge {
+  color: white;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px 15px;
+  background-color: #004797;
+  border: 1px black solid;
+  font-size: 3em;
+  border-radius: 13px 25px;
+}
+
+/* ADAPTATIVE */
+@media (max-width: 991px) {
+    .menuLarge {
+        font-size: 1.8em;
+    }
+}
+
+/* ANIMATIONS */
+/* Loading animation */
+svg path,
+svg rect{
+  fill: black;
+}
+
+.loader {
+  width: 40px;
+  height: 40px;
+  border: 3px solid transparent;
+  border-top-color: black;
+  border-radius: 50px;
+  animation: spin 1s infinite;
+    display: inline-block;
+}
+
+@keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
+}
+
+/* Animations ALL MENUS*/
+.menuLarge:hover {
+ -webkit-animation-name: grow;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  -moz-animation-name: grow;
+  -moz-animation-duration: 1s;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-timing-function: linear;
+  -ms-animation-name: grow;
+  -ms-animation-duration: 1s;
+  -ms-animation-iteration-count: infinite;
+  -ms-animation-timing-function: linear;
+}
+
+/* Animations */
+@-webkit-keyframes grow
+{
+  0%{-webkit-transform:scale(1);}
+  50%{-webkit-transform:scale(1.1);}
+  100%{-webkit-transform:scale(1);}
+}
+@-moz-keyframes grow
+{
+  0%{-moz-transform:scale(1);}
+  50%{-moz-transform:scale(1.1);}
+  100%{-moz-transform:scale(1);}
+}
+@-ms-keyframes grow
+{
+  0%{-ms-transform:scale(1);}
+  50%{-ms-transform:scale(1.1);}
+  100%{-ms-transform:scale(1);}
+}
