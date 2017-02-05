@@ -186,12 +186,12 @@ body {
 
     /* Elements in game */
     .exampleTile{
-      width: 500px;
-      height: 120px;
+      width: 400px;
+      height: 100px;
     }
     .sudoku {
-      width: 500px;
-      height: 500px;
+      width: 400px;
+      height: 400px;
     }
     .trash {
       max-width: 20vw;
