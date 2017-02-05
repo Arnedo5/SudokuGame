@@ -1,4 +1,7 @@
 
+
+
+
 function inicializeMoviment() {
 
     $(init);
@@ -102,12 +105,10 @@ function inicializeMoviment() {
 
     function checkSudoku() {
         if (unCompleteArray.join() == completeArray.join()) {
-            //alert("COMPLETASTES EL SUDOKUUU FELICIDADESSS");
-            /* $(".buttonsSudoku").animate({
-                 bottom: '430px'
-             }, 2000);*/
+            endGame();
+            $(".buttons").fadeTo("slow", 1)
 
-            alert("SUdoku OKEY");
+            //alert("SUdoku OKEY");
         } else {
             for (var x = 0; x < 4; x++) {
                 unCompleteArray[x].forEach(function (number, index) {
@@ -139,7 +140,6 @@ function inicializeMoviment() {
             }
         };
     }
-
 }
 
 /* AUXILIARS FUNCTIONS */

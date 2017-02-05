@@ -5,6 +5,8 @@ var completeArray = [[1, 2, 3, 4], [4, 3, 2, 1], [3, 1, 4, 2], [2, 4, 1, 3]];
 var completeaArrayActual = [];
 var completeaArrayToChange = [];
 
+var actualDifficult = 0;
+
 function difficultSudoku(difficult) {
     //Change positions - new board sudoku
     completeArray = newGameSudoku();
@@ -33,20 +35,21 @@ function difficultSudoku(difficult) {
 }
 
 function newGameSudoku() {
-    changeColumn();
-    changeLine();
-
+    var rand = getRandom(0, 1);
+    if (rand = 1) {
+        changeColumn();
+    } else {
+        changeLine();
+    }
     //Change columns
     function changeColumn() {
         var actualColumn = getRandom(0, 3);
         var columnToChange = valueLineal(actualColumn);
-
         //Charge pre-values columns
         for (var x = 0; x < 4; x++) {
             completeaArrayActual[x] = completeArray[x][actualColumn];
             completeaArrayToChange[x] = completeArray[x][columnToChange];
         }
-
         //Change values
         for (var x = 0; x < 4; x++) {
             completeArray[x][actualColumn] = completeaArrayToChange[x];
@@ -70,8 +73,6 @@ function newGameSudoku() {
 
     //return completeArray.reverse();
     return completeArray.reverse();
-
-
 }
 
 function valueLineal(valueRandom) {

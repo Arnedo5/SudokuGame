@@ -55,7 +55,7 @@ body {
   padding: 10px 15px;
   background-color: #004797;
   border: 1px black solid;
-  font-size: 3em;
+  font-size: 2.5em;
   border-radius: 13px 25px;
 }
 
@@ -181,7 +181,7 @@ body {
       font-size: 1.5em;
     }
     .menu {
-      /*padding: 0;*/
+      padding: 0;
     }
 
     /* Elements in game */
@@ -214,7 +214,7 @@ svg rect{
   border-top-color: black;
   border-radius: 50px;
   animation: spin 1s infinite;
-    display: inline-block;
+  display: inline-block;
 }
 
 @keyframes spin {
@@ -272,4 +272,23 @@ svg rect{
   -ms-animation-duration: 1.5s;
   -ms-animation-iteration-count: infinite;
   -ms-animation-timing-function: linear;
+}
+
+
+.complete {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0,0,0, 0.8);
+    z-index: 50;
+    padding: 0px 15px;
+}
+
+.buttons {
+  opacity: 0;
 }

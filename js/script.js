@@ -42,7 +42,7 @@ function initMenu() {
 
             });
         });
-    }, 2000);
+    }, 1500);
 }
 
 function selectLevel() {
@@ -70,7 +70,8 @@ function selectLevel() {
 
     $(".level0").click(function () {
         elementRemove(".container");
-        difficultSudoku(4);
+        actualDifficult = 4;
+        difficultSudoku(actualDifficult);
         loading()
         setTimeout(function () {
             $(".game").fadeTo("slow", 0, function () {
@@ -78,12 +79,13 @@ function selectLevel() {
                 $(".game").remove();
                 newGame();
             });
-        }, 1500);
+        }, 1000);
     });
 
     $(".level1").click(function () {
         elementRemove(".container");
-        difficultSudoku(6);
+        actualDifficult = 6;
+        difficultSudoku(actualDifficult);
         loading()
         setTimeout(function () {
             $(".game").fadeTo("slow", 0, function () {
@@ -91,12 +93,13 @@ function selectLevel() {
                 $(".game").remove();
                 newGame();
             });
-        }, 1500);
+        }, 1000);
     });
 
     $(".level2").click(function () {
         elementRemove(".container");
-        difficultSudoku(8);
+        actualDifficult = 8;
+        difficultSudoku(actualDifficult);
         loading()
         setTimeout(function () {
             $(".game").fadeTo("slow", 0, function () {
@@ -104,12 +107,13 @@ function selectLevel() {
                 $(".game").remove();
                 newGame();
             });
-        }, 1500);
+        }, 1000);
     });
 
     $(".level3").click(function () {
         elementRemove(".container");
-        difficultSudoku(10);
+        actualDifficult = 10;
+        difficultSudoku(actualDifficult);
         loading()
         setTimeout(function () {
             $(".game").fadeTo("slow", 0, function () {
@@ -117,7 +121,7 @@ function selectLevel() {
                 $(".game").remove();
                 newGame();
             });
-        }, 1500);
+        }, 1000);
     });
 }
 
@@ -293,7 +297,7 @@ function newGame() {
             createElement("<td>", "tileSudoku location" + positionDiv, "data-position", y, ".lineal" + x);
             //Add value line
             var dragImgage = $('.location' + positionDiv)
-            .attr("data-line",x);
+                .attr("data-line", x);
             var dragImgage = $('.location' + positionDiv);
             //Add line position
             positionDiv++;
@@ -302,7 +306,7 @@ function newGame() {
             } else {
                 dragImgage.addClass("uncomplete");
             }
-            
+
         }
     }
 
@@ -332,11 +336,72 @@ function newGame() {
     changeColors(backgroundColor, tileColor);
 
     //Inicialize moviments
-    inicializeMoviment ();
+    inicializeMoviment();
 }
 
 function endGame() {
 
+    //Create menu button elements
+    createElement("<div>", "complete", "key", "", ".menu");
+    createElement("<div>", "buttons", "key", "", ".complete");
+
+    createElement("<button>", "newSudoku menuLarge", "key", "newSudoku", ".buttons");
+    if (actualDifficult < 10) {
+        createElement("<button>", "nextDifficult menuLarge", "key", "nextDifficult", ".buttons");
+    }
+    createElement("<button>", "mainMenuMenu menuLarge", "key", "mainMenuMenu", ".buttons");
+
+    //Add Text
+    changeLanguage(languageSudoku);
+
+    //New Sudoku
+    $(".newSudoku").click(function () {
+        elementRemove(".containerSudoku");
+        elementRemove(".complete");
+
+        //Generat new table
+        difficultSudoku(actualDifficult);
+
+        //Menu loading
+        loading();
+        setTimeout(function () {
+            $(".game").fadeTo("slow", 0, function () {
+                //Remove loading
+                $(".game").remove();
+                newGame();
+            });
+        }, 500);
+    });
+
+    //Next diffucult
+    $(".nextDifficult").click(function () {
+        elementRemove(".containerSudoku");
+        elementRemove(".complete");
+
+        actualDifficult = actualDifficult + 2
+        
+        //Generat new table
+        difficultSudoku(actualDifficult);
+
+        //Menu loading
+        loading();
+        setTimeout(function () {
+            $(".game").fadeTo("slow", 0, function () {
+                //Remove loading
+                $(".game").remove();
+                newGame();
+            });
+        }, 500);
+
+    });
+
+    //Main menu
+    $(".mainMenuMenu").click(function () {
+        elementRemove(".containerSudoku");
+        elementRemove(".complete");
+        initColors(4);
+        initMenu();
+    });
 }
 
 
