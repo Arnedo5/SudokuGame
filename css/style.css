@@ -19,17 +19,17 @@ body {
 
 /* Charge menu */
 .spriteGirl {
-    height: 157px;
-    width: 125px;
-    background-image: url(../img/sprites/girl.png);
+    height: 500px;
+    width: 500px;
+    background-image: url(../img/sprites/patricio.gif);
     margin: 0 auto; 
     margin-bottom: 20px;
 }
 
 .spriteBoy {
-    height: 140px;
-    width: 108px;
-    background-image: url(../img/sprites/boy.png);
+    height: 500px;
+    width: 500px;
+    background-image: url(../img/sprites/patricio.gif);
     margin: 0 auto;  
 }
 
