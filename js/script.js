@@ -258,28 +258,48 @@ function newGame() {
     createElement("<div>", "containerSudoku", "key", "", ".menu");
     createElement("<table>", "sudoku", "key", "", ".containerSudoku");
     createElement("<table>", "exampleTile", "key", "", ".containerSudoku");
-    createElement("<div>", "trash", "key", "", ".containerSudoku");
+
 
     var positionDiv = 0;
 
+    /* Sudoku Table */
     for (var x = 0; x < 4; x++) {
         createElement("<tr>", "lineal" + x, "key", "", ".sudoku");
-        console.log("X - " + x)
 
         for (var y = 0; y < 4; y++) {
-
             createElement("<td>", "tileSudoku location" + positionDiv, "data-position", y, ".lineal" + x);
             var dragImgage = $('.location' + positionDiv);
             if (unCompleteArray[x][y] != 0) {
                 changeSprite(dragImgage, unCompleteArray[x][y], 0);
-                //console.log(NO);
             } else {
-                console.log("complete");
                 dragImgage.addClass("uncomplete");
             }
             positionDiv++;
         }
     }
+
+    // Example tile
+    createElement("<tr>", "example", "key", "", ".exampleTile");
+    for (var x = 0; x < 4; x++) {
+        var image = x + 1;
+        createElement("<td>", "exampleTile" + x, "key", "", ".example");
+        var dragImgage = $('.exampleTile' + x);
+        changeSprite(dragImgage, image, 0);
+
+        //Change Sprite
+        createElement("<div>", "draggableTile drag" + x, "key", "", ".exampleTile" + x);
+        //Add data
+        var dragImgage = $('.drag' + x);
+        dragImgage.data('sprite', image);
+        //Change Sprite
+        changeSprite(dragImgage, image, 0);
+    }
+
+    // Trash
+    createElement("<div>", "trash", "key", "", ".containerSudoku");
+    var dragImgage = $('.trash');
+    changeSprite(dragImgage, 5, 0);
+
 
 
 
