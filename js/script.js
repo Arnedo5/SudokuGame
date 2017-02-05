@@ -351,7 +351,7 @@ function createElement(typeElement, nameClass, typeAttr, nameAttr, append) {
 
 /* Animate loading Sprite */
 function animationSprite() {
-    $(".prite").animateSprite({
+    $(".sprite").animateSprite({
         fps: 12,
         animations: {
             walkRight: [0, 1, 2, 3, 4, 5, 6, 7],

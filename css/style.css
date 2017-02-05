@@ -19,17 +19,17 @@ body {
 
 /* Charge menu */
 .spriteGirl {
-    height: 500px;
-    width: 500px;
-    background-image: url(../img/sprites/patricio.gif);
+    height: 157px;
+    width: 125px;
+    background-image: url(../img/sprites/girl.png);
     margin: 0 auto; 
     margin-bottom: 20px;
 }
 
 .spriteBoy {
-    height: 500px;
-    width: 500px;
-    background-image: url(../img/sprites/patricio.gif);
+    height: 140px;
+    width: 108px;
+    background-image: url(../img/sprites/boy.png);
     margin: 0 auto;  
 }
 
@@ -181,7 +181,21 @@ body {
       font-size: 1.5em;
     }
     .menu {
-      padding: 0;
+      /*padding: 0;*/
+    }
+
+    /* Elements in game */
+    .exampleTile{
+      width: 500px;
+      height: 120px;
+    }
+    .sudoku {
+      width: 500px;
+      height: 500px;
+    }
+    .trash {
+      max-width: 20vw;
+      max-height: 20vw; 
     }
 }
 
@@ -244,3 +258,18 @@ svg rect{
   100%{-ms-transform:scale(1);}
 }
 
+/* Incorrect sudoku animate + - */
+.incorrect {
+  -webkit-animation-name: grow;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  -moz-animation-name: grow;
+  -moz-animation-duration: 1.5s;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-timing-function: linear;
+  -ms-animation-name: grow;
+  -ms-animation-duration: 1.5s;
+  -ms-animation-iteration-count: infinite;
+  -ms-animation-timing-function: linear;
+}

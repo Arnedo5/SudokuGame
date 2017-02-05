@@ -45,6 +45,26 @@ function inicializeMoviment() {
         enableDraggable(target);
         $(event.target).draggable('enable');
 
+        //Check correct sudoku
+
+        //checkSUdoku();
+        var total = 0
+
+        $.each(unCompleteArray, function (index, obj) {
+            $.each(obj, function (key, value) {
+                //console.log(key);
+                //console.log(value);
+
+                if (value != 0) {
+                    total++;
+                }
+            });
+        });
+
+        if (total == 16) {
+            checkSudoku()
+        }
+
         //Disable 'draggable' from uncomplete tails
         disableDroppable(event.target);
 
@@ -80,6 +100,45 @@ function inicializeMoviment() {
         enableDroppable(".uncomplete", dropSprite, '.draggableTile');
     }
 
+    function checkSudoku() {
+        if (unCompleteArray.join() == completeArray.join()) {
+            //alert("COMPLETASTES EL SUDOKUUU FELICIDADESSS");
+            /* $(".buttonsSudoku").animate({
+                 bottom: '430px'
+             }, 2000);*/
+
+            alert("SUdoku OKEY");
+        } else {
+            for (var x = 0; x < 4; x++) {
+                unCompleteArray[x].forEach(function (number, index) {
+
+                    if (number != completeArray[x][index]) {
+                        
+                        //Change values of sudoku
+                        completeSudoku(x, index, 0);
+
+                        var position = $("[data-position='" + index + "'][data-line='" + x + "']")
+                            .addClass('incorrect');
+
+                        //Change Sprite & draggable - droppable
+                        changeSprite(position, '_null', 3000);
+
+                        setTimeout(function () {
+                            position.removeClass('incorrect')
+
+                            //Dissable draggable
+                            position.draggable("disable")
+
+                            //Enable droppable
+                            $('.uncomplete').droppable("enable");
+                            enableDroppable(".uncomplete", dropSprite, '.draggableTile');
+                        }, 3000);
+
+                    }
+                });
+            }
+        };
+    }
 
 }
 
