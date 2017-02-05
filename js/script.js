@@ -11,17 +11,8 @@ $(document).ready(function () {
 // Menu initial
 function initMenu() {
 
-    //Create loading
-    createElement("<div>", "game", "key", "", ".menu");
-    createElement("<div>", "sprite " + valueLoading[getRandom(0, 1)], "key", "", ".game");
-    createElement("<div>", "loading", "key", "", ".game");
-    createElement("<div>", "text-loader", "key", "loading", ".loading");
-    createElement("<div>", "loader", "key", "", ".loading");
-
-    //Anitame sprite
-    animationSprite();
-    //Add Text
-    changeLanguage(languageSudoku);
+    //Loading menu
+    loading()
 
     setTimeout(function () {
         $(".game").fadeTo("slow", 0, function () {
@@ -51,7 +42,7 @@ function initMenu() {
 
             });
         });
-    }, 2000);
+    }, 1500);
 }
 
 function selectLevel() {
@@ -80,25 +71,53 @@ function selectLevel() {
     $(".level0").click(function () {
         elementRemove(".container");
         difficultSudoku(4);
-        newGame();
+        loading()
+        setTimeout(function () {
+            $(".game").fadeTo("slow", 0, function () {
+                //Remove loading
+                $(".game").remove();
+                newGame();
+            });
+        }, 1500);
     });
 
     $(".level1").click(function () {
         elementRemove(".container");
         difficultSudoku(6);
-        newGame();
+        loading()
+        setTimeout(function () {
+            $(".game").fadeTo("slow", 0, function () {
+                //Remove loading
+                $(".game").remove();
+                newGame();
+            });
+        }, 1500);
     });
 
     $(".level2").click(function () {
         elementRemove(".container");
         difficultSudoku(8);
-        newGame();
+        loading()
+        setTimeout(function () {
+            $(".game").fadeTo("slow", 0, function () {
+                //Remove loading
+                $(".game").remove();
+                newGame();
+            });
+        }, 1500);
     });
 
     $(".level3").click(function () {
         elementRemove(".container");
         difficultSudoku(10);
-        newGame();
+        loading()
+        setTimeout(function () {
+            $(".game").fadeTo("slow", 0, function () {
+                //Remove loading
+                $(".game").remove();
+                newGame();
+            });
+        }, 1500);
     });
 }
 
@@ -164,6 +183,7 @@ function configurationMenu() {
         $(".imageImage0").click(function () {
             elementRemove(".container");
             urlImages = "jungle";
+            initColors(0);
             configurationMenu();
         });
 
@@ -171,6 +191,7 @@ function configurationMenu() {
         $(".imageImage1").click(function () {
             elementRemove(".container");
             urlImages = "fruits";
+            initColors(1);
             configurationMenu();
         });
 
@@ -178,6 +199,7 @@ function configurationMenu() {
         $(".imageImage2").click(function () {
             elementRemove(".container");
             urlImages = "music";
+            initColors(2);
             configurationMenu();
         });
 
@@ -185,6 +207,7 @@ function configurationMenu() {
         $(".imageImage3").click(function () {
             elementRemove(".container");
             urlImages = "colors";
+            initColors(3);
             configurationMenu();
         });
 
@@ -268,13 +291,18 @@ function newGame() {
 
         for (var y = 0; y < 4; y++) {
             createElement("<td>", "tileSudoku location" + positionDiv, "data-position", y, ".lineal" + x);
+            //Add value line
+            var dragImgage = $('.location' + positionDiv)
+            .attr("data-line",x);
             var dragImgage = $('.location' + positionDiv);
+            //Add line position
+            positionDiv++;
             if (unCompleteArray[x][y] != 0) {
                 changeSprite(dragImgage, unCompleteArray[x][y], 0);
             } else {
                 dragImgage.addClass("uncomplete");
             }
-            positionDiv++;
+            
         }
     }
 
@@ -300,12 +328,11 @@ function newGame() {
     var dragImgage = $('.trash');
     changeSprite(dragImgage, 5, 0);
 
+    //Change colors
+    changeColors(backgroundColor, tileColor);
 
-
-
-
-
-
+    //Inicialize moviments
+    inicializeMoviment ();
 }
 
 function endGame() {
@@ -346,6 +373,21 @@ function elementRemove(elementRemove) {
 function changeSprite(element, image, time) {
     setTimeout(function () {
         element.css("background-image", "url(img/" + urlImages + "/image" + image + ".png)");
-        console.log("DAYUM");
     }, time);
+}
+
+//Loading menu
+function loading() {
+    //Create loading
+    createElement("<div>", "game", "key", "", ".menu");
+    createElement("<div>", "sprite " + valueLoading[getRandom(0, 1)], "key", "", ".game");
+    createElement("<div>", "loading", "key", "", ".game");
+    createElement("<div>", "text-loader", "key", "loading", ".loading");
+    createElement("<div>", "loader", "key", "", ".loading");
+
+    //Anitame sprite
+    animationSprite();
+
+    //Add Text
+    changeLanguage(languageSudoku);
 }

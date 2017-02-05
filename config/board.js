@@ -12,6 +12,7 @@ function difficultSudoku(difficult) {
     //this.unCompleteSudoku = completeArray.slice();
     unCompleteArray = completeArray.map(array => array.slice());
 
+    //Change values for '0'
     for (var x = 0; x < difficult; x++) {
         changeValue(x);
         function changeValue(x) {
@@ -24,7 +25,6 @@ function difficultSudoku(difficult) {
                 changeValue(x);
             }
         }
-
     }
     console.log("UNCOMPLETE ARRAY");
     console.table(unCompleteArray);
