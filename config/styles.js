@@ -34,8 +34,8 @@ function initColors(value) {
 }
 
 function changeColors(backgroundColor, tableColor) {
-    $("body").css('background-color', backgroundColor);
-    $(".sudoku").css('background-color', tableColor);
+    var body = $("body").css('background-color', backgroundColor);
+    var tile = $(".sudoku").css('background-color', tableColor);
 }
 
 function opacity(divOpacity, typeOpacity) {

@@ -378,10 +378,9 @@ function endGame() {
         elementRemove(".containerSudoku");
         elementRemove(".complete");
 
-        actualDifficult = actualDifficult + 2
-        
-        //Generat new table
-        difficultSudoku(actualDifficult);
+        //Change colors
+        initColors(4);
+        changeColors(backgroundColor, tileColor);
 
         //Menu loading
         loading();
@@ -389,7 +388,7 @@ function endGame() {
             $(".game").fadeTo("slow", 0, function () {
                 //Remove loading
                 $(".game").remove();
-                newGame();
+                selectLevel();
             });
         }, 500);
 
@@ -399,7 +398,9 @@ function endGame() {
     $(".mainMenuMenu").click(function () {
         elementRemove(".containerSudoku");
         elementRemove(".complete");
+        //Change colors
         initColors(4);
+        changeColors(backgroundColor, tileColor);
         initMenu();
     });
 }
