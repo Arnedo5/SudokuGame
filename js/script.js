@@ -1,7 +1,7 @@
 
 $(document).ready(function () {
     // New array
-    newGameImage();
+    //newGameImage();
     // Initial menu
     initMenu();
 });
@@ -11,42 +11,45 @@ $(document).ready(function () {
 // Menu initial
 function initMenu() {
 
+    //New style sudoku
+    newGameImage();
+    
     //Loading menu
     loading()
 
-    setTimeout(function () {
-        $(".game").fadeTo("slow", 0, function () {
-            //Remove loading
-            $(".game").remove();
+    //Create menu button elements
+    createElement("<button>", "newSudoku menuLarge", "key", "newSudoku", ".menu");
+    createElement("<button>", "configuration menuLarge", "key", "configuration", ".menu");
+    createElement("<button>", "credits menuLarge", "key", "credit", ".menu");
 
-            //Create menu button elements
-            createElement("<button>", "newSudoku menuLarge", "key", "newSudoku", ".menu");
-            createElement("<button>", "configuration menuLarge", "key", "configuration", ".menu");
-            createElement("<button>", "credits menuLarge", "key", "credit", ".menu");
+    //Add Text
+    changeLanguage(languageSudoku);
 
-            //Add Text
-            changeLanguage(languageSudoku);
+    //On clic button's
+    $(".newSudoku").click(function () {
+        elementRemove("button");
+        selectLevel();
+    });
 
-            //On clic button's
-            $(".newSudoku").click(function () {
-                elementRemove("button");
-                selectLevel();
-            });
+    $(".configuration").click(function () {
+        elementRemove("button");
+        configurationMenu();
+    });
 
-            $(".configuration").click(function () {
-                elementRemove("button");
-                configurationMenu();
-            });
+    $(".credits").click(function () {
 
-            $(".credits").click(function () {
-
-            });
-        });
-    }, 1500);
+    });
+    
+    //Remove loading
+    removeLoading(1000);  
 }
 
+//Select level
 function selectLevel() {
 
+    //Loading menu
+    loading()
+    
     //Create images elements
     createElement("<div>", "container", "key", "", ".menu");
     createElement("<div>", "images", "key", "", ".container");
@@ -72,59 +75,43 @@ function selectLevel() {
         elementRemove(".container");
         actualDifficult = 4;
         difficultSudoku(actualDifficult);
-        loading()
-        setTimeout(function () {
-            $(".game").fadeTo("slow", 0, function () {
-                //Remove loading
-                $(".game").remove();
-                newGame();
-            });
-        }, 1000);
+                        
+        //Generate talbe - new sudoku
+         newGame();
     });
 
     $(".level1").click(function () {
         elementRemove(".container");
         actualDifficult = 6;
         difficultSudoku(actualDifficult);
-        loading()
-        setTimeout(function () {
-            $(".game").fadeTo("slow", 0, function () {
-                //Remove loading
-                $(".game").remove();
-                newGame();
-            });
-        }, 1000);
+        
+        //Generate talbe - new sudoku
+         newGame();
     });
 
     $(".level2").click(function () {
         elementRemove(".container");
         actualDifficult = 8;
         difficultSudoku(actualDifficult);
-        loading()
-        setTimeout(function () {
-            $(".game").fadeTo("slow", 0, function () {
-                //Remove loading
-                $(".game").remove();
-                newGame();
-            });
-        }, 1000);
+        
+        //Generate talbe - new sudoku
+         newGame();
     });
 
     $(".level3").click(function () {
         elementRemove(".container");
         actualDifficult = 10;
         difficultSudoku(actualDifficult);
-        loading()
-        setTimeout(function () {
-            $(".game").fadeTo("slow", 0, function () {
-                //Remove loading
-                $(".game").remove();
-                newGame();
-            });
-        }, 1000);
+  
+        //Generate talbe - new sudoku
+         newGame();
     });
+    
+    //Remove loading
+    removeLoading(400); 
 }
 
+//Configure sudoku
 function configurationMenu() {
 
     //Create configuration button elements
@@ -154,12 +141,15 @@ function configurationMenu() {
 
     $(".mainMenuMenu").click(function () {
         elementRemove("button");
-        console.log("IEE")
         initMenu();
     });
+     
 
 
     function imagesMenu() {
+        
+        //Loading menu
+        loading()
 
         //Create images elements
         createElement("<div>", "container", "key", "", ".menu");
@@ -215,10 +205,15 @@ function configurationMenu() {
             configurationMenu();
         });
 
-
+        //Remove loading
+        removeLoading(400); 
+        
     }
 
     function lenguageMenu() {
+        
+        //Loading menu
+        loading()
 
         //Create images elements
         createElement("<div>", "container", "key", "", ".menu");
@@ -271,6 +266,9 @@ function configurationMenu() {
             languageSudoku = "pt";
             configurationMenu();
         });
+        
+        //Remove loading
+        removeLoading(400);
     }
 
     function backgroundMenu() {
@@ -279,9 +277,15 @@ function configurationMenu() {
 
 }
 
+//New game - generate new sudoku
 function newGame() {
 
-    /* Pre containers table */
+    //Loading menu
+    loading()
+
+    difficultSudoku(actualDifficult);
+    
+    //Pre containers table
     createElement("<div>", "containerSudoku", "key", "", ".menu");
     createElement("<table>", "sudoku", "key", "", ".containerSudoku");
     createElement("<table>", "exampleTile", "key", "", ".containerSudoku");
@@ -309,7 +313,7 @@ function newGame() {
 
         }
     }
-
+    
     // Example tile
     createElement("<tr>", "example", "key", "", ".exampleTile");
     for (var x = 0; x < 4; x++) {
@@ -325,82 +329,111 @@ function newGame() {
         dragImgage.data('sprite', image);
         //Change Sprite
         changeSprite(dragImgage, image, 0);
-    }
+    } 
 
     // Trash
-    createElement("<div>", "trash", "key", "", ".containerSudoku");
+    createElement("<div>", "under", "key", "", ".containerSudoku");
+    
+    //Menu
+    createElement("<div>", "separator separator" + 1, "key", "", ".under");
+    createElement("<div>", "newSudoku menuLarge", "key", "newSudoku", ".separator1");
+
+    //Trash
+    createElement("<div>", "trash", "key", "Menu", ".under");
+    
+    //New Sudoku
+    createElement("<div>", "separator separator" + 2, "key", "", ".under");
+    createElement("<div>", "menuStop menuLarge", "key", "Menu", ".separator2");
+    
     var dragImgage = $('.trash');
     changeSprite(dragImgage, 5, 0);
+    
+    //Add Text
+    changeLanguage(languageSudoku);
+    
+       
+    //Main menu
+    $(".newSudoku").click(function () {
+        elementRemove(".containerSudoku");
+        elementRemove(".complete");
+                
+        newGame();
+    });
+    
+     //Menu stop
+    $(".menuStop").click(function () {
+        //Call menu
+        endGame(false);   
+        $(".buttons").fadeTo("slow", 1)
+    });
+        
 
     //Change colors
     changeColors(backgroundColor, tileColor);
 
+    //Remove loading
+    removeLoading(1000); 
+    
     //Inicialize moviments
     inicializeMoviment();
 }
 
-function endGame() {
+
+//Menu final game
+function endGame(complete) {
 
     //Create menu button elements
     createElement("<div>", "complete", "key", "", ".menu");
     createElement("<div>", "buttons", "key", "", ".complete");
 
-    createElement("<button>", "newSudoku menuLarge", "key", "newSudoku", ".buttons");
-    if (actualDifficult < 10) {
-        createElement("<button>", "nextDifficult menuLarge", "key", "nextDifficult", ".buttons");
+    if (complete == true) {
+        createElement("<button>", "newSudoku menuLarge", "key", "newSudoku", ".buttons");
+    } else {
+        createElement("<button>", "continue menuLarge", "key", "continue", ".buttons");
     }
+    
+    createElement("<button>", "changeDifficult menuLarge", "key", "nextDifficult", ".buttons");
     createElement("<button>", "mainMenuMenu menuLarge", "key", "mainMenuMenu", ".buttons");
 
     //Add Text
     changeLanguage(languageSudoku);
-
+    
     //New Sudoku
     $(".newSudoku").click(function () {
         elementRemove(".containerSudoku");
         elementRemove(".complete");
-
-        //Generat new table
-        difficultSudoku(actualDifficult);
-
-        //Menu loading
-        loading();
-        setTimeout(function () {
-            $(".game").fadeTo("slow", 0, function () {
-                //Remove loading
-                $(".game").remove();
-                newGame();
-            });
-        }, 500);
+                
+        newGame();
     });
 
-    //Next diffucult
-    $(".nextDifficult").click(function () {
+    //New Continue
+    $(".continue").click(function () {
+        elementRemove(".complete");
+    });
+
+    //Change diffucult
+    $(".changeDifficult").click(function () {
         elementRemove(".containerSudoku");
         elementRemove(".complete");
-
+        
         //Change colors
         initColors(4);
         changeColors(backgroundColor, tileColor);
-
-        //Menu loading
-        loading();
-        setTimeout(function () {
-            $(".game").fadeTo("slow", 0, function () {
-                //Remove loading
-                $(".game").remove();
-                selectLevel();
-            });
-        }, 500);
-
+        
+        //Select level
+        selectLevel();
     });
 
     //Main menu
     $(".mainMenuMenu").click(function () {
         elementRemove(".containerSudoku");
         elementRemove(".complete");
+        
         //Change colors
         initColors(4);
         changeColors(backgroundColor, tileColor);
+        
+        //Call init menu
         initMenu();
     });
 }
@@ -445,7 +478,8 @@ function changeSprite(element, image, time) {
 //Loading menu
 function loading() {
     //Create loading
-    createElement("<div>", "game", "key", "", ".menu");
+    createElement("<div>", "charge", "key", "", ".menu");
+    createElement("<div>", "game", "key", "", ".charge");
     createElement("<div>", "sprite " + valueLoading[getRandom(0, 1)], "key", "", ".game");
     createElement("<div>", "loading", "key", "", ".game");
     createElement("<div>", "text-loader", "key", "loading", ".loading");
@@ -456,4 +490,13 @@ function loading() {
 
     //Add Text
     changeLanguage(languageSudoku);
+}
+
+function removeLoading (time) {
+    setTimeout(function () {
+        $(".charge").fadeTo("slow", 0, function () {
+            //Remove loading
+            $(".charge").remove();
+        });
+    }, time);
 }

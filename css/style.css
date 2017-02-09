@@ -39,6 +39,7 @@ body {
     border-top: 1px dashed;
     text-align: center;
     min-width: 200px;
+    color: white;
 }
 
 .text-loader{
@@ -150,7 +151,21 @@ body {
   height: 100%;
   width: 100%;
   background-size: cover;
-  
+}
+
+/* MENU BOTTOM*/
+
+.under {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.separator {
+  padding: 0 15px;
+  width: 200px;
+  text-align: center;
 }
 
 /* Trash */
@@ -160,8 +175,36 @@ body {
   max-width: 25vw;
   max-height: 25vw;
   height: 140px;
-  background-size: cover;
+  /*background-size: cover;*/
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
 }
+
+/* Charge loading */
+
+.complete, .charge {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0,0,0, 0.8);
+    z-index: 50;
+    padding: 0px 15px;
+}
+
+.charge {
+    background-color: rgba(0,0,0, 0.8);
+}
+
+.buttons {
+  opacity: 0;
+}
+
 
 
 
@@ -169,7 +212,7 @@ body {
 /* ADAPTATIVE */
 @media (max-width: 991px) {
     .menuLarge {
-        font-size: 1.8em;
+        font-size: 1.5em;
     }
     .container {
         width: auto;
@@ -197,6 +240,9 @@ body {
       max-width: 20vw;
       max-height: 20vw; 
     }
+    .separator {
+        width: 155px;
+    }
 }
 
 
@@ -211,7 +257,7 @@ svg rect{
   width: 40px;
   height: 40px;
   border: 3px solid transparent;
-  border-top-color: black;
+  border-top-color: white;
   border-radius: 50px;
   animation: spin 1s infinite;
   display: inline-block;
@@ -275,20 +321,4 @@ svg rect{
 }
 
 
-.complete {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(0,0,0, 0.8);
-    z-index: 50;
-    padding: 0px 15px;
-}
 
-.buttons {
-  opacity: 0;
-}

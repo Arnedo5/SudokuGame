@@ -1,7 +1,3 @@
-
-
-
-
 function inicializeMoviment() {
 
     $(init);
@@ -105,7 +101,7 @@ function inicializeMoviment() {
 
     function checkSudoku() {
         if (unCompleteArray.join() == completeArray.join()) {
-            endGame();
+            endGame(true);
             $(".buttons").fadeTo("slow", 1)
 
             //alert("SUdoku OKEY");
@@ -164,7 +160,7 @@ function enableDraggable(divEnable) {
         },
         revert: true,
         revertDuration: 0,
-        containment: '.menu',
+        containment: 'body',
         snap: '.menu'
     });
 }

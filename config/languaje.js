@@ -4,6 +4,7 @@ var languageSudoku = "cat";
 function changeLanguage(language) {
     var arrLang = {
         'es': {
+            'Menu' : 'Menu',
             'loading' : 'Cargando',
             'mainMenuMenu': 'Menu principal',
             'configurationMenu': "Menu de configuración",
@@ -30,15 +31,17 @@ function changeLanguage(language) {
             'descriptionBackground1': 'Nave espacial',
             'descriptionBackground2': 'Dia en la playa',
             'descriptionBackground3': 'Dia de navidad',
+            'continue' : 'Continuar'
         },
         'cat': {
+            'Menu' : 'Menu',
             'loading' : 'Carregant',
             'mainMenuMenu': 'Menu principal',
             'configurationMenu': "Menu de configuració",
             'newSudoku': 'Nou sudoku',
             'configuration': 'Configuració',
             'nextDifficult' : 'Canviar de difficultat',
-            'credit': 'Credits',
+            'credit': 'Crèdits',
             'level0' : 'Fàcil',
             'level1' : 'Mitjà',
             'level2' : 'Dificil',
@@ -58,8 +61,10 @@ function changeLanguage(language) {
             'descriptionBackground1': 'Nau espacial',
             'descriptionBackground2': 'Dia de platja',
             'descriptionBackground3': 'Dia de nadal',
+            'continue' : 'Continuar'
         },
         'en': {
+            'Menu' : 'Menu',
             'loading' : 'Loading',
             'mainMenuMenu': 'Main menu',
             'configurationMenu': "Configuration menu",
@@ -86,8 +91,10 @@ function changeLanguage(language) {
             'descriptionBackground1': 'Fruits',
             'descriptionBackground2': 'Music',
             'descriptionBackground3': 'Colors',
+            'continue' : 'Continuar'
         },
         'pt': {
+            'Menu' : 'Menu',
 
         }
     };
