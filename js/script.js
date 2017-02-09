@@ -56,7 +56,7 @@ function selectLevel() {
 
     for (var x = 0; x < 4; x++) {
         createElement("<div>", "container-image container-image" + x, "key", "", ".images");
-        createElement("<img>", "level" + x, "src", "img/configLevel/level" + x + ".png", ".container-image" + x);
+        createElement("<img>", "level" + x, "src", "img/configLevel/level" + x + ".gif", ".container-image" + x);
         createElement("<div>", "description descriptionImage" + x, "key", "level" + x, ".container-image" + x);
     }
 
@@ -71,7 +71,7 @@ function selectLevel() {
         initMenu();
     });
 
-    $(".level0").click(function () {
+    $(".level0,  .descriptionImage0").click(function () {
         elementRemove(".container");
         actualDifficult = 4;
         difficultSudoku(actualDifficult);
@@ -80,7 +80,7 @@ function selectLevel() {
          newGame();
     });
 
-    $(".level1").click(function () {
+    $(".level1 .descriptionImage1").click(function () {
         elementRemove(".container");
         actualDifficult = 6;
         difficultSudoku(actualDifficult);
@@ -89,7 +89,7 @@ function selectLevel() {
          newGame();
     });
 
-    $(".level2").click(function () {
+    $(".level2 .descriptionImage2").click(function () {
         elementRemove(".container");
         actualDifficult = 8;
         difficultSudoku(actualDifficult);
@@ -98,7 +98,7 @@ function selectLevel() {
          newGame();
     });
 
-    $(".level3").click(function () {
+    $(".level3 .descriptionImage3").click(function () {
         elementRemove(".container");
         actualDifficult = 10;
         difficultSudoku(actualDifficult);
