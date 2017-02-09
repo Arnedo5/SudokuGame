@@ -80,7 +80,7 @@ function selectLevel() {
          newGame();
     });
 
-    $(".level1 .descriptionImage1").click(function () {
+    $(".level1, .descriptionImage1").click(function () {
         elementRemove(".container");
         actualDifficult = 6;
         difficultSudoku(actualDifficult);
@@ -89,7 +89,7 @@ function selectLevel() {
          newGame();
     });
 
-    $(".level2 .descriptionImage2").click(function () {
+    $(".level2, .descriptionImage2").click(function () {
         elementRemove(".container");
         actualDifficult = 8;
         difficultSudoku(actualDifficult);
@@ -98,7 +98,7 @@ function selectLevel() {
          newGame();
     });
 
-    $(".level3 .descriptionImage3").click(function () {
+    $(".level3, .descriptionImage3").click(function () {
         elementRemove(".container");
         actualDifficult = 10;
         difficultSudoku(actualDifficult);
