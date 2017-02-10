@@ -13,6 +13,9 @@ function initMenu() {
 
     //New style sudoku
     //newGameImage();
+    
+    //Background menu
+    backgroundOpacity (0);
 
     //Loading menu
     loading()
@@ -52,6 +55,15 @@ function selectLevel() {
 
     //Loading menu
     loading()
+    
+    //Background menu
+    backgroundOpacity (0.3)
+    
+    //Background menu
+    backgroundOpacity (0)
+    
+    //Background menu
+    backgroundOpacity (0.3)
 
     //Create images elements
     createElement("<div>", "container", "key", "", ".menu");
@@ -122,11 +134,14 @@ function configurationMenu() {
 
     //Loading menu
     loading()
-
+    
+    //Background menu
+    backgroundOpacity (0);
+    
     //Create configuration button elements
     createElement("<button>", "images menuLarge", "key", "image", ".menu");
     createElement("<button>", "lenguage menuLarge", "key", "language", ".menu");
-    createElement("<button>", "background menuLarge", "key", "background", ".menu");
+    createElement("<button>", "music menuLarge", "key", "music", ".menu");
     createElement("<button>", "mainMenuMenu menuLarge", "key", "mainMenuMenu", ".menu");
 
     //Add text to buttons
@@ -149,8 +164,9 @@ function configurationMenu() {
         lenguageMenu();
     });
 
-    $(".background").click(function () {
+    $(".music").click(function () {
         elementRemove("button");
+        musicMenu();
 
     });
 
@@ -163,6 +179,9 @@ function configurationMenu() {
 
         //Loading menu
         loading()
+        
+        //Background menu
+        backgroundOpacity (0.3)
 
         //Create images elements
         createElement("<div>", "container", "key", "", ".menu");
@@ -236,6 +255,9 @@ function configurationMenu() {
         //Loading menu
         loading()
 
+        //Background menu
+        backgroundOpacity (0.3)
+    
         //Create images elements
         createElement("<div>", "container", "key", "", ".menu");
         createElement("<div>", "images", "key", "", ".container");
@@ -295,8 +317,35 @@ function configurationMenu() {
         removeLoading(400);
     }
 
-    function backgroundMenu() {
+    function musicMenu() {
+        
+        //Loading menu
+        loading()
+        
+        //Background menu
+        backgroundOpacity (0.3)
 
+        //Create images elements
+        createElement("<div>", "container", "key", "", ".menu");
+        createElement("<div>", "images", "key", "", ".container");
+        
+        //Remove loading
+        removeLoading(400);
+        
+        for (var x = 0; x < 4; x++) {
+            createElement("<div>", "container-image container-image" + x, "key", "", ".images");
+            createElement("<img>", "imageMusic" + x, "src", "img/configMusic/image" + x + ".png", ".container-image" + x);
+            createElement("<div>", "description descriptionMusic" + x, "key", "descriptionMusic" + x, ".container-image" + x);
+        }
+        
+        createElement("<div>", "container-button", "key", "", ".container");
+        createElement("<button>", "mainMenu menuLarge", "key", "configurationMenu", ".container-button");
+
+        //Add text to buttons
+        changeLanguage(languageSudoku);
+
+        //Change Colors
+        changeColors(typeColors);
     }
 
 }

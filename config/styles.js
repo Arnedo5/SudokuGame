@@ -29,11 +29,11 @@ BOTTOM | COLORS | > Background - #BABFEF  | Color - #61647C | Boton pequeño > #
 function newGameImage() {
     randomizer = getRandom(0, valueUrlImages.length - 1);
     /*initColors(randomizer);*/
+    
     urlImages = valueUrlImages[randomizer];
     typeColors = randomizer;
 
     changeColors(typeColors);
-
 }
 
 /* Colors & styles*/
@@ -54,6 +54,10 @@ function changeColors(style) {
 
 function opacity(divOpacity, typeOpacity) {
     $(divOpacity).css('opacity', typeOpacity);
+}
+
+function backgroundOpacity (opacity) {
+    $('.menu').css('background-color', 'rgba(255,255,255,' + opacity + ')');
 }
 
 /*
