@@ -178,7 +178,7 @@ function disableDroppable(divDisable) {
 
 function changeSprite(element, image, time) {
     setTimeout(function () {
-        element.css("background-image", "url(images/" + urlImages + "/image" + image + ".png)");
+        element.css("background-image", "url(img/" + urlImages + "/image" + image + ".png)");
     }, time);
 }
 

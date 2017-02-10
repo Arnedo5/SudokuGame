@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0;
   font-family: 'Amatic SC', cursive;
+  /*font-family: 'Press Start 2P', cursive;*/
 }
 
 body {
@@ -10,11 +11,16 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background: #dbe9fb;
+    /*background: #dbe9fb;*/
+    /*background-image: url(../img/fruit.png);*/
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .menu {
-    padding: 0px 15px;
+    /*padding: 0px 15px;*/
+    padding: 15px 15px;
+    background-color: rgba(255, 255, 255, 0.6);
 }
 
 /* Charge menu */
@@ -56,7 +62,7 @@ body {
   padding: 10px 15px;
   background-color: #004797;
   border: 1px black solid;
-  font-size: 2.5em;
+  font-size: 2.1em;
   border-radius: 13px 25px;
 }
 
@@ -205,10 +211,6 @@ body {
   opacity: 0;
 }
 
-
-
-
-
 /* ADAPTATIVE */
 @media (max-width: 991px) {
     .menuLarge {
@@ -241,7 +243,7 @@ body {
       max-height: 20vw; 
     }
     .separator {
-        width: 155px;
+        width: 130px;
     }
 }
 

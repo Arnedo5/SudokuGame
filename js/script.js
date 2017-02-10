@@ -1,7 +1,7 @@
 
 $(document).ready(function () {
     // New array
-    //newGameImage();
+    newGameImage();
     // Initial menu
     initMenu();
 });
@@ -12,8 +12,8 @@ $(document).ready(function () {
 function initMenu() {
 
     //New style sudoku
-    newGameImage();
-    
+    //newGameImage();
+
     //Loading menu
     loading()
 
@@ -39,9 +39,12 @@ function initMenu() {
     $(".credits").click(function () {
 
     });
-    
+
+    //Change Colors
+    changeColors(typeColors);
+
     //Remove loading
-    removeLoading(1000);  
+    removeLoading(1000);
 }
 
 //Select level
@@ -49,7 +52,7 @@ function selectLevel() {
 
     //Loading menu
     loading()
-    
+
     //Create images elements
     createElement("<div>", "container", "key", "", ".menu");
     createElement("<div>", "images", "key", "", ".container");
@@ -75,44 +78,50 @@ function selectLevel() {
         elementRemove(".container");
         actualDifficult = 4;
         difficultSudoku(actualDifficult);
-                        
+
         //Generate talbe - new sudoku
-         newGame();
+        newGame();
     });
 
     $(".level1, .descriptionImage1").click(function () {
         elementRemove(".container");
         actualDifficult = 6;
         difficultSudoku(actualDifficult);
-        
+
         //Generate talbe - new sudoku
-         newGame();
+        newGame();
     });
 
     $(".level2, .descriptionImage2").click(function () {
         elementRemove(".container");
         actualDifficult = 8;
         difficultSudoku(actualDifficult);
-        
+
         //Generate talbe - new sudoku
-         newGame();
+        newGame();
     });
 
     $(".level3, .descriptionImage3").click(function () {
         elementRemove(".container");
         actualDifficult = 10;
         difficultSudoku(actualDifficult);
-  
+
         //Generate talbe - new sudoku
-         newGame();
+        newGame();
     });
-    
+
+    //Change Colors
+    changeColors(typeColors);
+
     //Remove loading
-    removeLoading(400); 
+    removeLoading(400);
 }
 
 //Configure sudoku
 function configurationMenu() {
+
+    //Loading menu
+    loading()
 
     //Create configuration button elements
     createElement("<button>", "images menuLarge", "key", "image", ".menu");
@@ -122,6 +131,12 @@ function configurationMenu() {
 
     //Add text to buttons
     changeLanguage(languageSudoku);
+
+    //Change Colors
+    changeColors(typeColors);
+
+    //Remove loading
+    removeLoading(400);
 
     //On clic button's
     $(".images").click(function () {
@@ -143,11 +158,9 @@ function configurationMenu() {
         elementRemove("button");
         initMenu();
     });
-     
-
 
     function imagesMenu() {
-        
+
         //Loading menu
         loading()
 
@@ -167,6 +180,9 @@ function configurationMenu() {
         //Add text to buttons
         changeLanguage(languageSudoku);
 
+        //Change Colors
+        changeColors(typeColors);
+
         //On clic button's
         $(".mainMenu").click(function () {
             elementRemove(".container");
@@ -177,7 +193,8 @@ function configurationMenu() {
         $(".imageImage0").click(function () {
             elementRemove(".container");
             urlImages = "jungle";
-            initColors(0);
+            typeColors = 0;
+            changeColors(typeColors);
             configurationMenu();
         });
 
@@ -185,7 +202,8 @@ function configurationMenu() {
         $(".imageImage1").click(function () {
             elementRemove(".container");
             urlImages = "fruits";
-            initColors(1);
+            typeColors = 1;
+            changeColors(typeColors);
             configurationMenu();
         });
 
@@ -193,7 +211,8 @@ function configurationMenu() {
         $(".imageImage2").click(function () {
             elementRemove(".container");
             urlImages = "music";
-            initColors(2);
+            typeColors = 2;
+            changeColors(typeColors);
             configurationMenu();
         });
 
@@ -201,17 +220,19 @@ function configurationMenu() {
         $(".imageImage3").click(function () {
             elementRemove(".container");
             urlImages = "colors";
-            initColors(3);
+            //Change Colors
+            typeColors = 3;
+            changeColors(typeColors);
             configurationMenu();
         });
 
         //Remove loading
-        removeLoading(400); 
-        
+        removeLoading(400);
+
     }
 
     function lenguageMenu() {
-        
+
         //Loading menu
         loading()
 
@@ -230,6 +251,9 @@ function configurationMenu() {
 
         //Add text to buttons
         changeLanguage(languageSudoku);
+
+        //Change Colors
+        changeColors(typeColors);
 
         //On clic button's
         //Go to mainMenu
@@ -266,7 +290,7 @@ function configurationMenu() {
             languageSudoku = "pt";
             configurationMenu();
         });
-        
+
         //Remove loading
         removeLoading(400);
     }
@@ -279,12 +303,11 @@ function configurationMenu() {
 
 //New game - generate new sudoku
 function newGame() {
-
     //Loading menu
     loading()
 
     difficultSudoku(actualDifficult);
-    
+
     //Pre containers table
     createElement("<div>", "containerSudoku", "key", "", ".menu");
     createElement("<table>", "sudoku", "key", "", ".containerSudoku");
@@ -313,7 +336,7 @@ function newGame() {
 
         }
     }
-    
+
     // Example tile
     createElement("<tr>", "example", "key", "", ".exampleTile");
     for (var x = 0; x < 4; x++) {
@@ -329,51 +352,50 @@ function newGame() {
         dragImgage.data('sprite', image);
         //Change Sprite
         changeSprite(dragImgage, image, 0);
-    } 
+    }
 
     // Trash
     createElement("<div>", "under", "key", "", ".containerSudoku");
-    
+
     //Menu
     createElement("<div>", "separator separator" + 1, "key", "", ".under");
     createElement("<div>", "newSudoku menuLarge", "key", "newSudoku", ".separator1");
 
     //Trash
     createElement("<div>", "trash", "key", "Menu", ".under");
-    
+
     //New Sudoku
     createElement("<div>", "separator separator" + 2, "key", "", ".under");
     createElement("<div>", "menuStop menuLarge", "key", "Menu", ".separator2");
-    
+
     var dragImgage = $('.trash');
     changeSprite(dragImgage, 5, 0);
-    
+
     //Add Text
     changeLanguage(languageSudoku);
-    
-       
+
+
     //Main menu
     $(".newSudoku").click(function () {
         elementRemove(".containerSudoku");
         elementRemove(".complete");
-                
+
         newGame();
     });
-    
-     //Menu stop
+
+    //Menu stop
     $(".menuStop").click(function () {
         //Call menu
-        endGame(false);   
+        endGame(false);
         $(".buttons").fadeTo("slow", 1)
     });
-        
-
-    //Change colors
-    changeColors(backgroundColor, tileColor);
 
     //Remove loading
-    removeLoading(1000); 
-    
+    removeLoading(400);
+
+    //Change colors
+    changeColors(typeColors);
+
     //Inicialize moviments
     inicializeMoviment();
 }
@@ -391,18 +413,21 @@ function endGame(complete) {
     } else {
         createElement("<button>", "continue menuLarge", "key", "continue", ".buttons");
     }
-    
+
     createElement("<button>", "changeDifficult menuLarge", "key", "nextDifficult", ".buttons");
     createElement("<button>", "mainMenuMenu menuLarge", "key", "mainMenuMenu", ".buttons");
 
     //Add Text
     changeLanguage(languageSudoku);
-    
+
+    //Change colors
+    changeColors(typeColors);
+
     //New Sudoku
     $(".newSudoku").click(function () {
         elementRemove(".containerSudoku");
         elementRemove(".complete");
-                
+
         newGame();
     });
 
@@ -415,11 +440,10 @@ function endGame(complete) {
     $(".changeDifficult").click(function () {
         elementRemove(".containerSudoku");
         elementRemove(".complete");
-        
+
         //Change colors
-        initColors(4);
-        changeColors(backgroundColor, tileColor);
-        
+
+
         //Select level
         selectLevel();
     });
@@ -428,11 +452,10 @@ function endGame(complete) {
     $(".mainMenuMenu").click(function () {
         elementRemove(".containerSudoku");
         elementRemove(".complete");
-        
+
         //Change colors
-        initColors(4);
-        changeColors(backgroundColor, tileColor);
-        
+
+
         //Call init menu
         initMenu();
     });
@@ -492,7 +515,7 @@ function loading() {
     changeLanguage(languageSudoku);
 }
 
-function removeLoading (time) {
+function removeLoading(time) {
     setTimeout(function () {
         $(".charge").fadeTo("slow", 0, function () {
             //Remove loading
