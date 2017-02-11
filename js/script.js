@@ -71,7 +71,7 @@ function selectLevel() {
 
     for (var x = 0; x < 4; x++) {
         createElement("<div>", "container-image container-image" + x, "key", "", ".images");
-        createElement("<img>", "level" + x, "src", "img/configLevel/level" + x + ".gif", ".container-image" + x);
+        createElement("<img>", " exampleImg level" + x, "src", "img/configLevel/level" + x + ".gif", ".container-image" + x);
         createElement("<div>", "description descriptionImage" + x, "key", "level" + x, ".container-image" + x);
     }
 
@@ -346,6 +346,12 @@ function configurationMenu() {
 
         //Change Colors
         changeColors(typeColors);
+
+         //On clic button's
+        $(".mainMenu").click(function () {
+            elementRemove(".container");
+            configurationMenu();
+        });
     }
 
 }

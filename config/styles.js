@@ -11,12 +11,13 @@ var valueLan = ["catalonia", "spain", "english", "portugal"];
 /* COLORS for SUDOKU */
 var typeColors = "";
 var valueColors = [
+    //Bkd image | Bkd sudoku | Bkd buttons | Color buttons | Bkd mini buttons
     ['jungle','#7BAE7F','#DBFFC6','#5F7A66',"F2FFEA"],//Jungle colors
     ['fruit','#FC963C','#FFE1C6','#7A6C5F',"FFF4EA"],//Fruits colors
     ['music','#69C3EA','#C6DEFF','#5F6A7A',"E5F0FF"],//Music colors
-    ['color','#BFBFB9','#BABFEF','#61647C',"E8EAFC"]//Colors colors
+    ['color','#E5E5DE','#F2F2EA','black',"FFFFF9"]//Colors colors
     ];//Menu colors
-//Bkd image | Bkd sudoku | Bkd buttons | Color buttons | Bkd mini buttons
+
 /*
 BOTTOM | JUNGLE | > Background - #DBFFC6  | Color - #5F7A66 | Boton pequeño > #F2FFEA
 BOTTOM | FRUIT | > Background - #FFE1C6  | Color - #7A6C5F | Boton pequeño > #FFF4EA
@@ -31,8 +32,11 @@ function newGameImage() {
     /*initColors(randomizer);*/
     
     urlImages = valueUrlImages[randomizer];
+    console.log(urlImages);
+    
+    
     typeColors = randomizer;
-
+    
     changeColors(typeColors);
 }
 

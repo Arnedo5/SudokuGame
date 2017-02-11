@@ -71,6 +71,12 @@ body {
 }
 
 /* IMAGE MENU CONFIGURATION */
+.exampleImg {
+  min-height: 270px;
+  min-width: 270px;
+  border: 1px black solid;
+}
+
 .container-button{
   padding: 0px 15px;
 }
