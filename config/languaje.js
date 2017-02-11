@@ -27,10 +27,10 @@ function changeLanguage(language) {
             'descriptionLanguage1': 'Castellano',
             'descriptionLanguage2': 'Ingles',
             'descriptionLanguage3': 'Portugues',
-            'descriptionBackground0': 'Selva africana',
-            'descriptionBackground1': 'Nave espacial',
-            'descriptionBackground2': 'Dia en la playa',
-            'descriptionBackground3': 'Dia de navidad',
+            'descriptionMusic0': 'Musica ON',
+            'descriptionMusic1': 'Musica OFF',
+            'descriptionMusic2': 'Subir volumen',
+            'descriptionMusic3': 'Bajar volumen',
             'continue' : 'Continuar'
         },
         'cat': {
@@ -57,10 +57,10 @@ function changeLanguage(language) {
             'descriptionLanguage1': 'Castellà',
             'descriptionLanguage2': 'Anglès',
             'descriptionLanguage3': 'Portugues',
-            'descriptionBackground0': 'Selva africana',
-            'descriptionBackground1': 'Nau espacial',
-            'descriptionBackground2': 'Dia de platja',
-            'descriptionBackground3': 'Dia de nadal',
+            'descriptionMusic0': 'Musica ON',
+            'descriptionMusic1': 'Musica OFF',
+            'descriptionMusic2': 'Pujar volum',
+            'descriptionMusic3': 'Baixar Volum',
             'continue' : 'Continuar'
         },
         'en': {
@@ -87,10 +87,10 @@ function changeLanguage(language) {
             'descriptionLanguage1': 'Spanish',
             'descriptionLanguage2': 'English',
             'descriptionLanguage3': 'Portuguese',
-            'descriptionBackground0': 'Jungle',
-            'descriptionBackground1': 'Fruits',
-            'descriptionBackground2': 'Music',
-            'descriptionBackground3': 'Colors',
+            'descriptionMusic0': 'Music ON',
+            'descriptionMusic1': 'Music OFF',
+            'descriptionMusic2': 'Turn up volume',
+            'descriptionMusic3': 'Turn down volume',
             'continue' : 'Continuar'
         },
         'pt': {

@@ -72,8 +72,8 @@ body {
 
 /* IMAGE MENU CONFIGURATION */
 .exampleImg {
-  min-height: 270px;
-  min-width: 270px;
+  height: 250px;
+  min-width: 250px;
   border: 1px black solid;
 }
 
@@ -228,6 +228,7 @@ body {
     .container-image {
         width: 50%;
     }
+
     .description {
       font-size: 1.5em;
     }
@@ -252,7 +253,7 @@ body {
         width: 130px;
     }
     .exampleImg {
-      min-height: 200px;
+      min-height: 190px;
       min-width: 0px;
     }
 }

@@ -82,11 +82,9 @@ function inicializeMoviment() {
 
         //Position in table
         var positionTable = target.data('position');
-        console.log("POSITION TABLE - " + positionTable);
 
         //PositionLine
         var positionLine = target.data("line");
-        console.log("POSITION LINE - " + positionLine);
 
         //Change values - uncompleteArray
         completeSudoku(positionLine, positionTable, 0);
@@ -184,5 +182,4 @@ function changeSprite(element, image, time) {
 
 function completeSudoku(positionLine, positionTable, selectImage) {
     unCompleteArray[positionLine][positionTable] = selectImage;
-    console.table(unCompleteArray);
 }

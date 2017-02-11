@@ -11,11 +11,11 @@ $(document).ready(function () {
 // Menu initial
 function initMenu() {
 
-    //New style sudoku
-    //newGameImage();
-    
+    //Generate music
+    generateMusic(0);
+
     //Background menu
-    backgroundOpacity (0);
+    backgroundOpacity(0);
 
     //Loading menu
     loading()
@@ -31,11 +31,25 @@ function initMenu() {
     //On clic button's
     $(".newSudoku").click(function () {
         elementRemove("button");
+
+        //Stop music
+        stopMusic(actualMusic);
+
+        //Generate music
+        generateMusic(2);
+
         selectLevel();
     });
 
     $(".configuration").click(function () {
         elementRemove("button");
+
+        //Stop music
+        stopMusic(actualMusic);
+
+        //Generate music
+        generateMusic(1);
+
         configurationMenu();
     });
 
@@ -55,15 +69,15 @@ function selectLevel() {
 
     //Loading menu
     loading()
-    
+
     //Background menu
-    backgroundOpacity (0.3)
-    
+    backgroundOpacity(0.3)
+
     //Background menu
-    backgroundOpacity (0)
-    
+    backgroundOpacity(0)
+
     //Background menu
-    backgroundOpacity (0.3)
+    backgroundOpacity(0.3)
 
     //Create images elements
     createElement("<div>", "container", "key", "", ".menu");
@@ -83,6 +97,10 @@ function selectLevel() {
 
     $(".mainMenu").click(function () {
         elementRemove(".container");
+
+        //Stop music
+        stopMusic(actualMusic);
+
         initMenu();
     });
 
@@ -134,10 +152,10 @@ function configurationMenu() {
 
     //Loading menu
     loading()
-    
+
     //Background menu
-    backgroundOpacity (0);
-    
+    backgroundOpacity(0);
+
     //Create configuration button elements
     createElement("<button>", "images menuLarge", "key", "image", ".menu");
     createElement("<button>", "lenguage menuLarge", "key", "language", ".menu");
@@ -172,6 +190,10 @@ function configurationMenu() {
 
     $(".mainMenuMenu").click(function () {
         elementRemove("button");
+
+        //Stop music
+        stopMusic(actualMusic);
+
         initMenu();
     });
 
@@ -179,9 +201,9 @@ function configurationMenu() {
 
         //Loading menu
         loading()
-        
+
         //Background menu
-        backgroundOpacity (0.3)
+        backgroundOpacity(0.3)
 
         //Create images elements
         createElement("<div>", "container", "key", "", ".menu");
@@ -209,7 +231,7 @@ function configurationMenu() {
         });
 
         //Jungle
-        $(".imageImage0").click(function () {
+        $(".imageImage0, .descriptionImage0").click(function () {
             elementRemove(".container");
             urlImages = "jungle";
             typeColors = 0;
@@ -218,7 +240,7 @@ function configurationMenu() {
         });
 
         //Jungle
-        $(".imageImage1").click(function () {
+        $(".imageImage1, .descriptionImage1").click(function () {
             elementRemove(".container");
             urlImages = "fruits";
             typeColors = 1;
@@ -227,7 +249,7 @@ function configurationMenu() {
         });
 
         //Music
-        $(".imageImage2").click(function () {
+        $(".imageImage2, .descriptionImage2").click(function () {
             elementRemove(".container");
             urlImages = "music";
             typeColors = 2;
@@ -236,7 +258,7 @@ function configurationMenu() {
         });
 
         //Colors
-        $(".imageImage3").click(function () {
+        $(".imageImage3, .descriptionImage3").click(function () {
             elementRemove(".container");
             urlImages = "colors";
             //Change Colors
@@ -256,8 +278,8 @@ function configurationMenu() {
         loading()
 
         //Background menu
-        backgroundOpacity (0.3)
-    
+        backgroundOpacity(0.3)
+
         //Create images elements
         createElement("<div>", "container", "key", "", ".menu");
         createElement("<div>", "images", "key", "", ".container");
@@ -286,28 +308,28 @@ function configurationMenu() {
 
 
         //Language - CAT
-        $(".imageLanguage0").click(function () {
+        $(".imageLanguage0, .descriptionLanguage0").click(function () {
             elementRemove(".container");
             languageSudoku = "cat";
             configurationMenu();
         });
 
         //Language - ES
-        $(".imageLanguage1").click(function () {
+        $(".imageLanguage1, .descriptionLanguage1").click(function () {
             elementRemove(".container");
             languageSudoku = "es";
             configurationMenu();
         });
 
         //Language - EN
-        $(".imageLanguage2").click(function () {
+        $(".imageLanguage2, .descriptionLanguage2").click(function () {
             elementRemove(".container");
             languageSudoku = "en";
             configurationMenu();
         });
 
         //Language - PT
-        $(".imageLanguage3").click(function () {
+        $(".imageLanguage3, .descriptionLanguage3").click(function () {
             elementRemove(".container");
             languageSudoku = "pt";
             configurationMenu();
@@ -318,26 +340,26 @@ function configurationMenu() {
     }
 
     function musicMenu() {
-        
+
         //Loading menu
         loading()
-        
+
         //Background menu
-        backgroundOpacity (0.3)
+        backgroundOpacity(0.3)
 
         //Create images elements
         createElement("<div>", "container", "key", "", ".menu");
         createElement("<div>", "images", "key", "", ".container");
-        
+
         //Remove loading
         removeLoading(400);
-        
+
         for (var x = 0; x < 4; x++) {
             createElement("<div>", "container-image container-image" + x, "key", "", ".images");
-            createElement("<img>", "imageMusic" + x, "src", "img/configMusic/image" + x + ".png", ".container-image" + x);
+            createElement("<img>", "exampleImg imageMusic" + x, "src", "img/configMusic/image" + x + ".gif", ".container-image" + x);
             createElement("<div>", "description descriptionMusic" + x, "key", "descriptionMusic" + x, ".container-image" + x);
         }
-        
+
         createElement("<div>", "container-button", "key", "", ".container");
         createElement("<button>", "mainMenu menuLarge", "key", "configurationMenu", ".container-button");
 
@@ -347,10 +369,32 @@ function configurationMenu() {
         //Change Colors
         changeColors(typeColors);
 
-         //On clic button's
+        //On clic button's
         $(".mainMenu").click(function () {
             elementRemove(".container");
             configurationMenu();
+        });
+
+        //Music ON
+        $(".imageMusic0, .descriptionMusic0").click(function () {
+            playMusic(actualMusic);
+        });
+
+        //Music OFF
+        $(".imageMusic1, .descriptionMusic1").click(function () {
+            noMusic(actualMusic);
+        });
+
+        //Less Volume
+        $(".imageMusic2, .descriptionMusic2").click(function () {
+            noMusic(actualMusic);
+            moreVolume(actualMusic);
+        });
+
+        //More volume
+        $(".imageMusic3, .descriptionMusic3").click(function () {
+            noMusic(actualMusic);
+            lessVolume(actualMusic);
         });
     }
 
@@ -358,6 +402,13 @@ function configurationMenu() {
 
 //New game - generate new sudoku
 function newGame() {
+
+    //Stop music
+    stopMusic(actualMusic);
+
+    //Genrate music
+    generateMusic(getRandom(3,6));
+
     //Loading menu
     loading()
 
@@ -483,6 +534,9 @@ function endGame(complete) {
         elementRemove(".containerSudoku");
         elementRemove(".complete");
 
+        //Stop music
+        stopMusic(actualMusic);
+
         newGame();
     });
 
@@ -496,8 +550,11 @@ function endGame(complete) {
         elementRemove(".containerSudoku");
         elementRemove(".complete");
 
-        //Change colors
+        //Stop music
+        stopMusic(actualMusic);
 
+        //Generate music
+        generateMusic(2);
 
         //Select level
         selectLevel();
@@ -508,8 +565,8 @@ function endGame(complete) {
         elementRemove(".containerSudoku");
         elementRemove(".complete");
 
-        //Change colors
-
+        //Stop music
+        stopMusic(actualMusic);
 
         //Call init menu
         initMenu();
