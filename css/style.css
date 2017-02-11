@@ -52,8 +52,6 @@ body {
     padding: 10px 0;
 }
 
-
-
 /* INITIAL MENU */
 .menuLarge {
   color: white;
@@ -234,6 +232,10 @@ body {
     }
     .menu {
       padding: 0;
+    }
+    
+    .exampleImg {
+      height: 0px;
     }
 
     /* Elements in game */
