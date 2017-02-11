@@ -233,7 +233,7 @@ body {
     .menu {
       padding: 0;
     }
-    
+
     .exampleImg {
       height: 0px;
     }
@@ -255,7 +255,7 @@ body {
         width: 130px;
     }
     .exampleImg {
-      min-height: 190px;
+      min-height: 170px;
       min-width: 0px;
     }
 }
