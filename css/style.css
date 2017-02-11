@@ -251,6 +251,10 @@ body {
     .separator {
         width: 130px;
     }
+    .exampleImg {
+      min-height: 200px;
+      min-width: 0px;
+    }
 }
 
 
