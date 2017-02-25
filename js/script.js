@@ -601,6 +601,7 @@ function endGame(complete) {
         $('.complete').css('background-color', 'rgba(0,0,0,0.0)');
 
         //Create Elements
+        createElement("<img>", "logoSudoku congratulations", "src", "img/titles/congratulations.png", "body");
         createElement("<button>", "newSudoku menuLarge", "key", "newSudoku", ".buttons");
     } else {
         createElement("<button>", "continue menuLarge", "key", "continue", ".buttons");
@@ -619,6 +620,7 @@ function endGame(complete) {
     $(".newSudoku").click(function () {
         elementRemove(".containerSudoku");
         elementRemove(".complete");
+        elementRemove(".congratulations");
 
         //Stop music
         stopMusic(actualMusic);
@@ -634,12 +636,14 @@ function endGame(complete) {
         $(".particles").css('visibility', 'hidden');
 
         elementRemove(".complete");
+        elementRemove(".congratulations");
     });
 
     //Change diffucult
     $(".changeDifficult").click(function () {
         elementRemove(".containerSudoku");
         elementRemove(".complete");
+        elementRemove(".congratulations");
 
         //Stop music
         stopMusic(actualMusic);
@@ -658,6 +662,7 @@ function endGame(complete) {
     $(".mainMenuMenu").click(function () {
         elementRemove(".containerSudoku");
         elementRemove(".complete");
+        elementRemove(".congratulations");
 
         //Stop music
         stopMusic(actualMusic);

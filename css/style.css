@@ -19,8 +19,10 @@ body {
 
 .logoSudoku {
   position: absolute;
-  top: 20vh;
+  top: 15vh;
   z-index: 50;
+  width: 700px;
+  height: auto;
 }
 
 .menu {
@@ -270,6 +272,7 @@ body {
 
 .charge {
     background-color: rgba(0,0,0, 1);
+    z-index: 51;
 }
 
 .buttons {
@@ -282,6 +285,7 @@ body {
         width:360px;
         top: 15vh;
     }
+
     .menuLarge, .creditsMenu{
         font-size: 1.5em;
     }
@@ -403,7 +407,7 @@ svg rect{
 
 /* Incorrect sudoku animate + - */
 .incorrect {
-     border: 2px solid black;
+   border: 2px solid black;
   -webkit-animation-name: grow;
   -webkit-animation-duration: 1s;
   -webkit-animation-iteration-count: infinite;
