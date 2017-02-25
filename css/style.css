@@ -17,6 +17,10 @@ body {
     background-repeat: no-repeat;
 }
 
+.container img {
+    border: 2px black solid;
+}
+
 .logoSudoku {
   position: absolute;
   top: 15vh;
