@@ -29,7 +29,6 @@ function playMusic(music) {
     mute = false;
 }
 
-
 //Pause music
 function stopMusic(music) {
     music.pause();
@@ -39,8 +38,6 @@ function stopMusic(music) {
 function lessVolume(music) {
     if (actualVolume > 0.1) {
         actualMusic.volume = (actualVolume).toFixed(1) - 0.1;
-        
-        console.log(actualMusic.volume)
         actualVolume = actualMusic.volume;
     }
     playMusic(actualMusic);
@@ -50,9 +47,7 @@ function lessVolume(music) {
 function moreVolume(music) {
     if (actualVolume < 0.9) {
         actualMusic.volume = actualVolume + 0.1;
-        console.log(actualMusic.volume)
-        actualVolume = actualMusic.volume;
-        
+        actualVolume = actualMusic.volume;  
     }
     playMusic(actualMusic);
 }

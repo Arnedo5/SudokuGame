@@ -6,8 +6,6 @@ $(document).ready(function () {
     initMenu();
 });
 
-
-
 // Menu initial
 function initMenu() {
 
@@ -21,6 +19,7 @@ function initMenu() {
     loading()
 
     //Create menu button elements
+    createElement("<img>", "logoSudoku", "src", "img/titles/logo.png", "body");
     createElement("<button>", "newSudoku menuLarge", "key", "newSudoku", ".menu");
     createElement("<button>", "configuration menuLarge", "key", "configuration", ".menu");
     createElement("<button>", "credits menuLarge", "key", "credit", ".menu");
@@ -31,6 +30,7 @@ function initMenu() {
     //On clic button's
     $(".newSudoku").click(function () {
         elementRemove("button");
+        elementRemove("img");
 
         //Stop music
         stopMusic(actualMusic);
@@ -43,6 +43,7 @@ function initMenu() {
 
     $(".configuration").click(function () {
         elementRemove("button");
+        elementRemove("img");
 
         //Stop music
         stopMusic(actualMusic);
@@ -54,14 +55,17 @@ function initMenu() {
     });
 
     $(".credits").click(function () {
+        elementRemove("button");
+        elementRemove("img");
 
+        creditsMenu()
     });
 
     //Change Colors
     changeColors(typeColors);
 
     //Remove loading
-    removeLoading(1000);
+    removeLoading(500);
 }
 
 //Select level
@@ -90,7 +94,7 @@ function selectLevel() {
     }
 
     createElement("<div>", "container-button", "key", "", ".container");
-    createElement("<button>", "mainMenu menuLarge", "key", "configurationMenu", ".container-button");
+    createElement("<button>", "mainMenu menuLarge", "key", "mainMenuMenu", ".container-button");
 
     //Add text to buttons
     changeLanguage(languageSudoku);
@@ -268,7 +272,7 @@ function configurationMenu() {
         });
 
         //Remove loading
-        removeLoading(400);
+        removeLoading(0);
 
     }
 
@@ -400,6 +404,79 @@ function configurationMenu() {
 
 }
 
+//Credits menu
+function creditsMenu() {
+
+    //Change visiblitiy particles
+    $(".particles").css('visibility', 'visible');
+
+    //Change Background backgroundOpacity
+    $('.complete').css('background-color', 'rgba(0,0,0,0.0)');
+
+    //Background menu
+    backgroundOpacity(0);
+
+    //Change color Background
+    $("body").css('background-color', 'black');
+
+    //Create div elements
+    createElement("<img>", "logoSudoku", "src", "img/titles/logo.png", "body");
+    createElement("<div>", "complete", "key", "", ".menu");
+    createElement("<div>", "creditsMenu", "key", "", ".complete");
+    createElement("<div>", "creditsContent", "key", "", ".creditsMenu");
+
+    //Creator
+    createElement("<span>", "creditText creditTitle", "key", "creator", ".creditsContent");
+    createElement("<p>", "creditText creditDescription", "key", "david", ".creditsContent");
+
+    //Images
+    createElement("<span>", "creditText creditTitle", "key", "images", ".creditsContent");
+    createElement("<p>", "creditText creditDescription", "key", "david_escola", ".creditsContent");
+
+    //Code
+    createElement("<span>", "creditText creditTitle", "key", "code", ".creditsContent");
+    createElement("<p>", "creditText creditDescription", "key", "david", ".creditsContent");
+
+    //Animation
+    createElement("<span>", "creditText creditTitle", "key", "animation", ".creditsContent");
+    createElement("<p>", "creditText creditDescription", "key", "david", ".creditsContent");
+
+    //Inspiration
+    createElement("<span>", "creditText creditTitle", "key", "inspiration", ".creditsContent");
+    createElement("<p>", "creditText creditDescription", "key", "other", ".creditsContent");
+
+    //Add Text
+    changeLanguage(languageSudoku);
+
+    //Remove elements
+    $(".complete").click(function () {
+
+        //Remove credits
+        elementRemove(".complete");
+        elementRemove(".logoSudoku");
+
+        //Stop music
+        stopMusic(actualMusic);
+
+        //Change visiblitiy particles
+        $(".particles").css('visibility', 'hidden');
+
+        initMenu();
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
 //New game - generate new sudoku
 function newGame() {
 
@@ -407,7 +484,7 @@ function newGame() {
     stopMusic(actualMusic);
 
     //Genrate music
-    generateMusic(getRandom(3,6));
+    generateMusic(getRandom(3, 6));
 
     //Loading menu
     loading()
@@ -506,7 +583,6 @@ function newGame() {
     inicializeMoviment();
 }
 
-
 //Menu final game
 function endGame(complete) {
 
@@ -514,7 +590,17 @@ function endGame(complete) {
     createElement("<div>", "complete", "key", "", ".menu");
     createElement("<div>", "buttons", "key", "", ".complete");
 
+    //Change Background backgroundOpacity
+    $('.complete').css('background-color', 'rgba(0,0,0,0.8)');
+
     if (complete == true) {
+        //Change visiblitiy particles
+        $(".particles").css('visibility', 'visible');
+
+        //Change Background backgroundOpacity
+        $('.complete').css('background-color', 'rgba(0,0,0,0.0)');
+
+        //Create Elements
         createElement("<button>", "newSudoku menuLarge", "key", "newSudoku", ".buttons");
     } else {
         createElement("<button>", "continue menuLarge", "key", "continue", ".buttons");
@@ -537,11 +623,16 @@ function endGame(complete) {
         //Stop music
         stopMusic(actualMusic);
 
+        //Change visiblitiy particles
+        $(".particles").css('visibility', 'hidden');
         newGame();
     });
 
     //New Continue
     $(".continue").click(function () {
+        //Change visiblitiy particles
+        $(".particles").css('visibility', 'hidden');
+
         elementRemove(".complete");
     });
 
@@ -552,6 +643,9 @@ function endGame(complete) {
 
         //Stop music
         stopMusic(actualMusic);
+
+        //Change visiblitiy particles
+        $(".particles").css('visibility', 'hidden');
 
         //Generate music
         generateMusic(2);
@@ -567,6 +661,9 @@ function endGame(complete) {
 
         //Stop music
         stopMusic(actualMusic);
+
+        //Change visiblitiy particles
+        $(".particles").css('visibility', 'hidden');
 
         //Call init menu
         initMenu();
@@ -628,10 +725,13 @@ function loading() {
 }
 
 function removeLoading(time) {
-    setTimeout(function () {
-        $(".charge").fadeTo("slow", 0, function () {
-            //Remove loading
-            $(".charge").remove();
-        });
-    }, time);
+    $("body").ready(function () {
+        setTimeout(function () {
+            console.log("Removed!");
+            $(".charge").fadeTo("slow", 0, function () {
+                //Remove loading
+                $(".charge").remove();
+            });
+        }, time);
+    });
 }

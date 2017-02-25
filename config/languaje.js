@@ -4,14 +4,22 @@ var languageSudoku = "cat";
 function changeLanguage(language) {
     var arrLang = {
         'es': {
-            'Menu' : 'Menu',
             'loading' : 'Cargando',
+            'Menu' : 'Menu',
             'mainMenuMenu': 'Menu principal',
             'configurationMenu': "Menu de configuración",
             'newSudoku': 'Nuevo sudoku',
             'configuration': 'Configuración',
             'nextDifficult' : 'Cambiar de difficultad',
             'credit': 'Creditos',
+            'creator': 'Creador',
+            'images' : 'Imagenes',
+            'code' : 'Codigo',
+            'animation' : 'Animaciones',
+            'inspiration' : 'Inspiracion',
+            'david' : 'David Arnedo Gallardo',
+            'david_escola' : "David Arnedo & Escola d'arts",
+            'other' : 'Jordi , Edgar & otros',
             'level0' : 'Facil',
             'level1' : 'Medio',
             'level2' : 'Dificil',
@@ -31,17 +39,26 @@ function changeLanguage(language) {
             'descriptionMusic1': 'Musica OFF',
             'descriptionMusic2': 'Subir volumen',
             'descriptionMusic3': 'Bajar volumen',
-            'continue' : 'Continuar'
+            'continue' : 'Continuar',
         },
         'cat': {
-            'Menu' : 'Menu',
             'loading' : 'Carregant',
+            'Menu' : 'Menu',
             'mainMenuMenu': 'Menu principal',
             'configurationMenu': "Menu de configuració",
             'newSudoku': 'Nou sudoku',
             'configuration': 'Configuració',
-            'nextDifficult' : 'Canviar de difficultat',
+            'nextDifficult' : 'Canviar de dificultat',
             'credit': 'Crèdits',
+            'creator': 'Creador',
+            'images' : 'Imatges',
+            'code' : 'Codi',
+            'animation' : 'Animacions',
+            'inspiration' : 'Inspiració',
+            'david' : 'David Arnedo Gallardo',
+            'david_escola' : "David Arnedo & Escola d'arts",
+            'other' : 'Jordi, Edgar & altres',
+            'creator': 'Creador',
             'level0' : 'Fàcil',
             'level1' : 'Mitjà',
             'level2' : 'Dificil',
@@ -64,14 +81,23 @@ function changeLanguage(language) {
             'continue' : 'Continuar'
         },
         'en': {
-            'Menu' : 'Menu',
             'loading' : 'Loading',
+            'Menu' : 'Menu',
             'mainMenuMenu': 'Main menu',
             'configurationMenu': "Configuration menu",
             'newSudoku': 'New sudoku',
             'configuration': 'Configuration',
             'nextDifficult' : 'Change difficult',
             'credit': 'Credits',
+            'creator': 'Creador',
+            'images' : 'Images',
+            'code' : 'Code',
+            'animation' : 'Animations',
+            'inspiration' : 'Inspiration',
+            'david' : 'David Arnedo Gallardo',
+            'david_escola' : "David Arnedo & Escola d'arts",
+            'other' : 'Jordi, Edgar & others',
+            'creator': 'Creator',
             'level0' : 'Easy',
             'level1' : 'Medium',
             'level2' : 'Hard',
@@ -91,17 +117,53 @@ function changeLanguage(language) {
             'descriptionMusic1': 'Music OFF',
             'descriptionMusic2': 'Turn up volume',
             'descriptionMusic3': 'Turn down volume',
-            'continue' : 'Continuar'
+            'continue' : 'Continue'
         },
         'pt': {
+            'loading' : 'Carregando',
             'Menu' : 'Menu',
-
+            'mainMenuMenu': 'Menu principal',
+            'configurationMenu': 'Menu de configuracão',
+            'newSudoku': 'Novo sudoku',
+            'configuration': 'Configuracão',
+            'nextDifficult' : 'Modificar dificuldade',
+            'credit': 'Creditos',
+            'creator': 'Criador',
+            'images' : 'Imagems',
+            'code' : 'Codigo',
+            'animation' : 'Animação',
+            'inspiration' : 'Inspiracão',
+            'david' : 'David Arnedo Gallardo',
+            'david_escola' : "David Arnedo & Escola de Artes",
+            'other' : 'Jordi, Edgar & outros',
+            'creator': 'Criador',
+            'level0' : 'Fácil',
+            'level1' : 'Mediano',
+            'level2' : 'Dificil',
+            'level3' : 'Hardcore',
+            'image': 'Imagems',
+            'language': "Linguas",
+            'music': 'Musica',
+            'descriptionImage0': 'Selva',
+            'descriptionImage1': 'Fruta',
+            'descriptionImage2': 'Musica',
+            'descriptionImage3': 'Cores',
+            'descriptionLanguage0': 'Català',
+            'descriptionLanguage1': 'Castellà',
+            'descriptionLanguage2': 'Ingles',
+            'descriptionLanguage3': 'Portugues',
+            'descriptionMusic0': 'Musica ON',
+            'descriptionMusic1': 'Musica OFF',
+            'descriptionMusic2': 'Subir Volume',
+            'descriptionMusic3': 'Baixar Volume',
+            'continue' : 'Continuar'
         }
     };
     $(function () {
-        $('.menuLarge').each(function (index, element) {
+        $('.menuLarge, .description, .buttonBottomSudoku, .text-loader, .creditText').each(function (index, element) {
             $(this).text(arrLang[language][$(this).attr('key')]);
         });
+        /*
         $('.description').each(function (index, element) {
             $(this).text(arrLang[language][$(this).attr('key')]);
         });
@@ -111,5 +173,6 @@ function changeLanguage(language) {
         $('.text-loader').each(function (index, element) {
             $(this).text(arrLang[language][$(this).attr('key')]);
         });
+        */
     });
 }
