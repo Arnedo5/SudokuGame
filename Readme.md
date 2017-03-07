@@ -1,4 +1,4 @@
-# Sudoku Game - JQUERY - [DEMO](https://arnedo5.github.io/Sudoku_Image/)
+# Sudoku Game - JQUERY - [DEMO](https://arnedo5.github.io/SudokuGame/)
 
 **Introduccion**
 
