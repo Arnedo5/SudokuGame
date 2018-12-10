@@ -2,7 +2,7 @@
 
 **Introduccion**
 
-Sudoku credo a partir de HTML, CSS, JQUERY i otro plugins. El proyecto esta fragmentado en diferentes archivos js para su mejor mantenimiento i gestion del mismo.
+Sudoku credo a partir de HTML, CSS, JQUERY y otro plugins. El proyecto esta fragmentado en diferentes archivos js para su mejor mantenimiento y gestion del mismo.
 
 <a name="contenido"></a>
 **Lista de incorporaciones**
